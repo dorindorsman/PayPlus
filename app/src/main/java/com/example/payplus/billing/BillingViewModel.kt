@@ -24,7 +24,7 @@ class BillingViewModel(
     }
 
 
-    private var billingHeaders: List<BillingEntryHeader> by mutableStateOf(
+    var billingHeaders: List<BillingEntryHeader> by mutableStateOf(
         emptyList()
     )
 
@@ -36,10 +36,10 @@ class BillingViewModel(
 
     private fun getBillingHeaders() = viewModelScope.launch {
         Log.d(TAG, "getBillingHeaders")
-        billingRepository.getBillingHeaders().also { response ->
+        billingRepository.getHeaders().also { response ->
             if (response is Response.Success) {
                 Log.d(TAG, "${response.data}")
-                billingHeaders = response.data
+                billingHeaders = response.data.headers
                 Log.d(TAG, "dorin $billingHeaders")
             } else if (response is Response.Error) {
                 response.apply {
@@ -49,11 +49,5 @@ class BillingViewModel(
         }
     }
 
-//    private fun orderShop() {
-//        Log.d(TAG, "orderShop")
-//        shopCategories = shop.products.groupBy {
-//            it.category
-//        }.toList()
-//    }
 
 }

@@ -8,6 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class BillingViewModelFactory : ViewModelProvider.Factory {
 
+    // http://192.168.1.127:8030/payment/billing/entry/headers
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         val retrofitBuilder = retrofit2.Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())

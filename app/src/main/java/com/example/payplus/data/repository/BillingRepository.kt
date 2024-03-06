@@ -11,11 +11,11 @@ class BillingRepository (
         const val TAG = "BillingRepository"
     }
 
-    suspend fun getBillingHeaders(): Response {
-        Log.d(TAG, "getBillingHeaders")
+    suspend fun getHeaders(): Response {
+        Log.d(TAG, "getHeaders")
 
         val response = try {
-            api.getBillingHeaders()
+            api.getHeaders()
         } catch (exception: Exception) {
             return Response.Error(exception)
         }

@@ -1,9 +1,10 @@
 package com.example.payplus.domain.repository
 
-import com.example.payplus.domain.models.BillingEntryHeader
-import retrofit2.http.GET
+import com.example.payplus.domain.models.Headers
+import retrofit2.http.POST
 
 interface BillingApi {
-    @GET("/payment/billing/entry/headers/")
-    suspend fun getBillingHeaders(): List<BillingEntryHeader>
+    //http://192.168.1.127:8030/payment/billing/entry/headers
+    @POST("payment/billing/entry/headers")
+    suspend fun getHeaders(): Headers
 }
